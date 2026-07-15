@@ -3,6 +3,7 @@ import 'package:flutter_application_1/login.dart';
 import 'package:flutter_application_1/registration.dart';
 import 'package:flutter_application_1/home.dart';
 
+
 void main() {
   runApp(const GlowAndBeautyHub());
 }
@@ -15,6 +16,7 @@ class GlowAndBeautyHub extends StatefulWidget {
 }
 
 class _GlowAndBeautyHubState extends State<GlowAndBeautyHub> {
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
