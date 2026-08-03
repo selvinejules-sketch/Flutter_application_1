@@ -101,6 +101,14 @@ class _SalesState extends State<Sales> {
     },
   ];
 
+  final int todaySales = 15;
+  final int monthlySales = 420;
+  final int annualSales = 5180;
+
+  final String todayRevenue = "KES 250,000";
+  final String monthlyRevenue = "KES 6,850,000";
+  final String annualRevenue = "KES 81,400,000";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,118 +116,241 @@ class _SalesState extends State<Sales> {
         title: const Text("Sales"),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Sales Overview",
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
 
-            const SizedBox(height: 5),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
 
-            const Text(
-              "Track all phone sales made today.",
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-              ),
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
 
-            const SizedBox(height: 20),
-
-            Card(
-              elevation: 5,
-              child: Padding(
-                padding: const EdgeInsets.all(18),
-                child: Row(
-                  children: [
-                    const CircleAvatar(
-                      radius: 28,
-                      child: Icon(
-                        Icons.point_of_sale,
-                        size: 30,
-                      ),
-                    ),
-
-                    const SizedBox(width: 20),
-
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          "Today's Sales",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-
-                        SizedBox(height: 5),
-
-                        Text(
-                          "15 Sales",
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.green,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-
-                        SizedBox(height: 8),
-
-                        Text(
-                          "Revenue: KES 250,000",
-                          style: TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+              const Text(
+                "Sales Overview",
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
-            ),
 
-            const SizedBox(height: 20),
+              const SizedBox(height: 5),
 
-            const Text(
-              "Recent Sales",
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.bold,
+              const Text(
+                "Track today's, monthly and annual phone sales.",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
               ),
-            ),
 
-            const SizedBox(height: 10),
+              const SizedBox(height: 20),
 
-            Expanded(
-              child: ListView.builder(
+              Card(
+                elevation: 5,
+
+                child: Padding(
+                  padding: const EdgeInsets.all(18),
+
+                  child: Row(
+                    children: [
+
+                      const CircleAvatar(
+                        radius: 28,
+                        backgroundColor: Colors.green,
+
+                        child: Icon(
+                          Icons.point_of_sale,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                      ),
+
+                      const SizedBox(width: 20),
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+
+                          const Text(
+                            "Today's Sales",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          const SizedBox(height: 8),
+
+                          Text(
+                            "$todaySales Sales",
+                            style: const TextStyle(
+                              fontSize: 25,
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          const SizedBox(height: 8),
+
+                          Text(
+                            "Revenue : $todayRevenue",
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+                            Row(
+                children: [
+
+                  Expanded(
+                    child: Card(
+                      elevation: 4,
+
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+
+                        child: Column(
+                          children: [
+
+                            const Icon(
+                              Icons.calendar_month,
+                              size: 40,
+                              color: Colors.blue,
+                            ),
+
+                            const SizedBox(height: 10),
+
+                            const Text(
+                              "Monthly Sales",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+
+                            const SizedBox(height: 8),
+
+                            Text(
+                              "$monthlySales",
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.blue,
+                              ),
+                            ),
+
+                            const SizedBox(height: 5),
+
+                            Text(
+                              monthlyRevenue,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 12),
+
+                  Expanded(
+                    child: Card(
+                      elevation: 4,
+
+                      child: Padding(
+                        padding: const EdgeInsets.all(15),
+
+                        child: Column(
+                          children: [
+
+                            const Icon(
+                              Icons.bar_chart,
+                              size: 40,
+                              color: Colors.orange,
+                            ),
+
+                            const SizedBox(height: 10),
+
+                            const Text(
+                              "Annual Sales",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+
+                            const SizedBox(height: 8),
+
+                            Text(
+                              "$annualSales",
+                              style: const TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.orange,
+                              ),
+                            ),
+
+                            const SizedBox(height: 5),
+
+                            Text(
+                              annualRevenue,
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 25),
+
+              const Text(
+                "Recent Sales",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+
                 itemCount: sales.length,
+
                 itemBuilder: (context, index) {
+
                   final sale = sales[index];
 
                   return Card(
                     elevation: 3,
                     margin: const EdgeInsets.only(bottom: 10),
+
                     child: ListTile(
+
                       leading: const CircleAvatar(
                         child: Icon(Icons.shopping_cart),
                       ),
+
                       title: Text(
                         sale["phone"],
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
+
                       subtitle: Text(
                         "${sale["customer"]}\n${sale["date"]}",
                       ),
+
                       trailing: Text(
                         sale["amount"],
                         style: const TextStyle(
@@ -231,15 +362,20 @@ class _SalesState extends State<Sales> {
                   );
                 },
               ),
-            ),
-          ],
+                          ],
+          ),
         ),
       ),
 
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          // Navigate to Add Sale screen
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("Add New Sale feature coming soon."),
+            ),
+          );
         },
+        backgroundColor: Colors.green,
         icon: const Icon(Icons.add),
         label: const Text("New Sale"),
       ),
